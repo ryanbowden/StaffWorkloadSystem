@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffWorkloadSystem", "StaffWorkloadSystem\StaffWorkloadSystem.csproj", "{AAAFDC7D-68B4-4E62-B418-784237FA79F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffWorkloadSystem", "StaffWorkloadSystem\StaffWorkloadSystem.csproj", "{4486796A-AF1F-4851-B948-E6F7D0DF5EDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AAAFDC7D-68B4-4E62-B418-784237FA79F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAAFDC7D-68B4-4E62-B418-784237FA79F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAAFDC7D-68B4-4E62-B418-784237FA79F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAAFDC7D-68B4-4E62-B418-784237FA79F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4486796A-AF1F-4851-B948-E6F7D0DF5EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4486796A-AF1F-4851-B948-E6F7D0DF5EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4486796A-AF1F-4851-B948-E6F7D0DF5EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4486796A-AF1F-4851-B948-E6F7D0DF5EDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
