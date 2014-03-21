@@ -3,13 +3,14 @@
     <h1>Staff</h1>
     <p><a href="addstaff" class="btn btn-primary btn-large">Add a staff member</a></p>
     <p>
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="StaffDetails">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="StaffDetails">
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
+                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                 <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                 <asp:BoundField DataField="MaxHours" HeaderText="MaxHours" SortExpression="MaxHours" />
+                <asp:BoundField DataField="CurrentHours" HeaderText="CurrentHours" SortExpression="CurrentHours" />
                 <asp:BoundField DataField="InitialYear" HeaderText="InitialYear" SortExpression="InitialYear" />
             </Columns>
         </asp:GridView>
