@@ -4,6 +4,7 @@
         Duties
     </h1>
     <p>
-        This is where the duties will go.
-    </p>
+        Duties in the system</p>
+    <p>
+        &nbsp;</p>
 </asp:Content>

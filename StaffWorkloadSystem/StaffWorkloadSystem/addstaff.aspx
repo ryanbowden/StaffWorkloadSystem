@@ -36,13 +36,16 @@
             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
             <br />
             MaxHours:
-            <asp:TextBox ID="MaxHoursTextBox" runat="server" Text='<%# Bind("MaxHours") %>' />
+            <asp:TextBox ID="MaxHoursTextBox" runat="server" Text='<%# Bind("MaxHours") %>' CausesValidation="True" TextMode="Number" ValidationGroup="checknumbers" AutoPostBack="True" />
             <br />
             InitialYear:
             <asp:CheckBox ID="InitialYearCheckBox" runat="server" Checked='<%# Bind("InitialYear") %>' />
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
 &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="MaxHoursTextBox"
+ ErrorMessage="Please Enter Only Numbers" Style="z-index: 101; left: 424px; position: absolute;
+ top: 285px" ValidationExpression="^\d+$" ValidationGroup="checknumbers"></asp:RegularExpressionValidator>
         </InsertItemTemplate>
         <ItemTemplate>
 &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
@@ -81,4 +84,5 @@
         </UpdateParameters>
     </asp:SqlDataSource>
 </p>
+    
 </asp:Content>
