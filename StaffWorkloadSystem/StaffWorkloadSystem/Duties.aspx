@@ -26,7 +26,7 @@
                 <asp:Parameter Name="original_Description" Type="String" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Name" Type="String" />
+                <asp:Parameter Name="Duty name" Type="String" />
                 <asp:Parameter Name="Description" Type="String" />
             </InsertParameters>
             <UpdateParameters>

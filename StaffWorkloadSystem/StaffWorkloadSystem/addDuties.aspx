@@ -22,10 +22,16 @@
             </EmptyDataTemplate>
             <InsertItemTemplate>
                 Name:
-                <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
+                <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' /><asp:RequiredFieldValidator runat="server"
+      id="reqName" ControlToValidate="NameTextBox"
+      ErrorMessage = "You must Provide a Name for the Duty!"
+      display="Dynamic" />
                 <br />
                 Description:
-                <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
+                <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' /><asp:RequiredFieldValidator runat="server"
+      id="regDesc" ControlToValidate="DescriptionTextBox"
+      ErrorMessage = "You must Provide a Description for the Duty!"
+      display="Dynamic" />
                 <br />
                 <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
                 &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />

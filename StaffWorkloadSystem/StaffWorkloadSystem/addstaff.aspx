@@ -29,14 +29,23 @@
             <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
         </EmptyDataTemplate>
         <InsertItemTemplate>
-            FirstName:
-            <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
+            First Name:
+            <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' /><asp:RequiredFieldValidator runat="server"
+      id="reqFName" ControlToValidate="FirstNameTextBox"
+      ErrorMessage = "You must Provide a First Name!"
+      display="Dynamic" />
             <br />
-            LastName:
-            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+            Last Name:
+            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' /><asp:RequiredFieldValidator runat="server"
+      id="reqLName" ControlToValidate="LastNameTextBox"
+      ErrorMessage = "You must Provide a Last Name!"
+      display="Dynamic" />
             <br />
             MaxHours:
-            <asp:TextBox ID="MaxHoursTextBox" runat="server" Text='<%# Bind("MaxHours") %>' /><asp:RegularExpressionValidator runat="server"
+            <asp:TextBox ID="MaxHoursTextBox" runat="server" Text='<%# Bind("MaxHours") %>' /><asp:RequiredFieldValidator runat="server"
+      id="regMaxHours" ControlToValidate="MaxHoursTextBox"
+      ErrorMessage = "You must Provide the Max Hours the staff member should have!"
+      display="Dynamic" /><asp:RegularExpressionValidator runat="server"
       id="regexpMaxHours" ControlToValidate="MaxHoursTextBox"
       ValidationExpression="^\d{1,3}$"
       ErrorMessage = "Must Only Contain Numbers!"

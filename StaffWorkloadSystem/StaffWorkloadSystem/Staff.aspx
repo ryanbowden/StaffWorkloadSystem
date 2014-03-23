@@ -23,11 +23,11 @@
                 <asp:Parameter Name="original_InitialYear" Type="String" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Id" Type="Int32" />
-                <asp:Parameter Name="FirstName" Type="String" />
-                <asp:Parameter Name="LastName" Type="String" />
-                <asp:Parameter Name="MaxHours" Type="Int32" />
-                <asp:Parameter Name="InitialYear" Type="String" />
+                <asp:Parameter Name="ID" Type="Int32" />
+                <asp:Parameter Name="First Name" Type="String" />
+                <asp:Parameter Name="Last Name" Type="String" />
+                <asp:Parameter Name="Max Hours" Type="Int32" />
+                <asp:Parameter Name="Initial Year" Type="String" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="FirstName" Type="String" />
