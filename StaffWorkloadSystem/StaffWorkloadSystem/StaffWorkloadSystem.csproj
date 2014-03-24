@@ -201,6 +201,8 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Staff.aspx" />
+    <Content Include="StaffDuties.aspx" />
+    <Content Include="StaffDutyConnection.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -327,6 +329,20 @@
     </Compile>
     <Compile Include="Staff.aspx.designer.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffDuties.aspx.cs">
+      <DependentUpon>StaffDuties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffDuties.aspx.designer.cs">
+      <DependentUpon>StaffDuties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffDutyConnection.aspx.cs">
+      <DependentUpon>StaffDutyConnection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffDutyConnection.aspx.designer.cs">
+      <DependentUpon>StaffDutyConnection.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

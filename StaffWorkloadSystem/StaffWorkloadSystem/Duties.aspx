@@ -3,7 +3,7 @@
     <h1>
         Duties
     </h1>
-    <p><a href="addDuties" class="btn btn-primary btn-large">Add a duty</a></p>
+    <p><a href="addDuties" class="btn btn-primary btn-large">Add a duty</a>&nbsp;<a href="StaffDuties" class="btn btn-primary btn-large">Connect to staff</a> </p>
     <p>
         Here are all the duties in the system.
     </p>

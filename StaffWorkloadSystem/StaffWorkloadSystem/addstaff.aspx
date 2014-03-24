@@ -7,11 +7,8 @@
             ID:
             <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
             <br />
-            FirstName:
-            <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
-            <br />
-            LastName:
-            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+            Name:
+            <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
             <br />
             MaxHours:
             <asp:TextBox ID="MaxHoursTextBox" runat="server" Text='<%# Bind("MaxHours") %>' />
@@ -29,27 +26,14 @@
             <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
         </EmptyDataTemplate>
         <InsertItemTemplate>
-            First Name:
-            <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' /><asp:RequiredFieldValidator runat="server"
-      id="reqFName" ControlToValidate="FirstNameTextBox"
-      ErrorMessage = "You must Provide a First Name!"
-      display="Dynamic" />
-            <br />
-            Last Name:
-            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' /><asp:RequiredFieldValidator runat="server"
-      id="reqLName" ControlToValidate="LastNameTextBox"
-      ErrorMessage = "You must Provide a Last Name!"
-      display="Dynamic" />
+            Name:
+            <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
             <br />
             MaxHours:
-            <asp:TextBox ID="MaxHoursTextBox" runat="server" Text='<%# Bind("MaxHours") %>' /><asp:RequiredFieldValidator runat="server"
-      id="regMaxHours" ControlToValidate="MaxHoursTextBox"
-      ErrorMessage = "You must Provide the Max Hours the staff member should have!"
-      display="Dynamic" /><asp:RegularExpressionValidator runat="server"
-      id="regexpMaxHours" ControlToValidate="MaxHoursTextBox"
-      ValidationExpression="^\d{1,3}$"
-      ErrorMessage = "Must Only Contain Numbers!"
-      Display="Dynamic" ForeColor="Red" />
+            <asp:TextBox ID="MaxHoursTextBox" runat="server" Text='<%# Bind("MaxHours") %>' />
+            <br />
+            CurrentHours:
+            <asp:TextBox ID="CurrentHoursTextBox" runat="server" Text='<%# Bind("CurrentHours") %>' />
             <br />
             InitialYear:
             <asp:CheckBox ID="InitialYearCheckBox" runat="server" Checked='<%# Bind("InitialYear") %>' />
@@ -58,7 +42,7 @@
 &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
-&nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+            <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
         </ItemTemplate>
     </asp:FormView>
     </p>
