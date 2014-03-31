@@ -9,6 +9,9 @@
         <asp:Label ID="lblError" runat="server"></asp:Label>
     </p>
     <p>
+        <asp:Label ID="lblStatus" runat="server"></asp:Label>
+    </p>
+    <p>
         Staff Name:
         <asp:DropDownList ID="StaffID" runat="server" DataSourceID="SqlData_Staff" DataTextField="Name" DataValueField="ID">
         </asp:DropDownList>

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Add staff to Duties</h1>
     <p>This is where you will be able to edit and see what a satff member already have.</p>
-    <a href="Connect a staff member to a duty" class="btn btn-primary btn-large">Connect a staff member to a duty</a>
+    <a href="StaffDutyConnection" class="btn btn-primary btn-large">Connect a staff member to a duty</a>
 
     <p>
         <asp:DropDownList ID="StaffMember" runat="server" DataSourceID="SqlDataStaff" DataTextField="Name" DataValueField="ID">
