@@ -8,16 +8,26 @@
         Here are all the duties in the system.
     </p>
     <p>
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_duties">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource_duties" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                 <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
             </Columns>
+            <EditRowStyle BackColor="#2461BF" />
             <EmptyDataTemplate>
                 There Is not Duties in the system.
             </EmptyDataTemplate>
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource_duties" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:staffwoAJ4TKlNRsConnectionString %>" DeleteCommand="DELETE FROM [Duties] WHERE [ID] = @original_ID AND [Name] = @original_Name AND [Description] = @original_Description" InsertCommand="INSERT INTO [Duties] ([Name], [Description]) VALUES (@Name, @Description)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Duties]" UpdateCommand="UPDATE [Duties] SET [Name] = @Name, [Description] = @Description WHERE [ID] = @original_ID AND [Name] = @original_Name AND [Description] = @original_Description">
             <DeleteParameters>
@@ -26,7 +36,7 @@
                 <asp:Parameter Name="original_Description" Type="String" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Duty name" Type="String" />
+                <asp:Parameter Name="Name" Type="String" />
                 <asp:Parameter Name="Description" Type="String" />
             </InsertParameters>
             <UpdateParameters>

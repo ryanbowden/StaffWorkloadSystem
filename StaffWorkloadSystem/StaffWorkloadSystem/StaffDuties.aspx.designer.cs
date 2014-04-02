@@ -13,13 +13,13 @@ namespace StaffWorkloadSystem {
     public partial class StaffDuties {
         
         /// <summary>
-        /// StaffMember control.
+        /// StaffMemberID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StaffMember;
+        protected global::System.Web.UI.WebControls.DropDownList StaffMemberID;
         
         /// <summary>
         /// SqlDataStaff control.
@@ -40,12 +40,12 @@ namespace StaffWorkloadSystem {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// SqlDataDutiesConnection control.
+        /// SqlDataSource_GetStaffDuties control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataDutiesConnection;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_GetStaffDuties;
     }
 }

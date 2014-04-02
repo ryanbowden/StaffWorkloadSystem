@@ -14,31 +14,30 @@
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="StaffDetails" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:staffwoAJ4TKlNRsConnectionString %>" DeleteCommand="DELETE FROM [StaffDetails] WHERE [Id] = @original_Id AND (([FirstName] = @original_FirstName) OR ([FirstName] IS NULL AND @original_FirstName IS NULL)) AND (([LastName] = @original_LastName) OR ([LastName] IS NULL AND @original_LastName IS NULL)) AND (([MaxHours] = @original_MaxHours) OR ([MaxHours] IS NULL AND @original_MaxHours IS NULL)) AND (([InitialYear] = @original_InitialYear) OR ([InitialYear] IS NULL AND @original_InitialYear IS NULL))" InsertCommand="INSERT INTO [StaffDetails] ([Id], [FirstName], [LastName], [MaxHours], [InitialYear]) VALUES (@Id, @FirstName, @LastName, @MaxHours, @InitialYear)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [StaffDetails]" UpdateCommand="UPDATE [StaffDetails] SET [FirstName] = @FirstName, [LastName] = @LastName, [MaxHours] = @MaxHours, [InitialYear] = @InitialYear WHERE [Id] = @original_Id AND (([FirstName] = @original_FirstName) OR ([FirstName] IS NULL AND @original_FirstName IS NULL)) AND (([LastName] = @original_LastName) OR ([LastName] IS NULL AND @original_LastName IS NULL)) AND (([MaxHours] = @original_MaxHours) OR ([MaxHours] IS NULL AND @original_MaxHours IS NULL)) AND (([InitialYear] = @original_InitialYear) OR ([InitialYear] IS NULL AND @original_InitialYear IS NULL))">
+        <asp:SqlDataSource ID="StaffDetails" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:staffwoAJ4TKlNRsConnectionString %>" DeleteCommand="DELETE FROM [StaffDetails] WHERE [ID] = @original_ID AND [Name] = @original_Name AND [MaxHours] = @original_MaxHours AND (([CurrentHours] = @original_CurrentHours) OR ([CurrentHours] IS NULL AND @original_CurrentHours IS NULL)) AND (([InitialYear] = @original_InitialYear) OR ([InitialYear] IS NULL AND @original_InitialYear IS NULL))" InsertCommand="INSERT INTO [StaffDetails] ([Name], [MaxHours], [CurrentHours], [InitialYear]) VALUES (@Name, @MaxHours, @CurrentHours, @InitialYear)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [StaffDetails]" UpdateCommand="UPDATE [StaffDetails] SET [Name] = @Name, [MaxHours] = @MaxHours, [CurrentHours] = @CurrentHours, [InitialYear] = @InitialYear WHERE [ID] = @original_ID AND [Name] = @original_Name AND [MaxHours] = @original_MaxHours AND (([CurrentHours] = @original_CurrentHours) OR ([CurrentHours] IS NULL AND @original_CurrentHours IS NULL)) AND (([InitialYear] = @original_InitialYear) OR ([InitialYear] IS NULL AND @original_InitialYear IS NULL))">
             <DeleteParameters>
-                <asp:Parameter Name="original_Id" Type="Int32" />
-                <asp:Parameter Name="original_FirstName" Type="String" />
-                <asp:Parameter Name="original_LastName" Type="String" />
+                <asp:Parameter Name="original_ID" Type="Int32" />
+                <asp:Parameter Name="original_Name" Type="String" />
                 <asp:Parameter Name="original_MaxHours" Type="Int32" />
-                <asp:Parameter Name="original_InitialYear" Type="String" />
+                <asp:Parameter Name="original_CurrentHours" Type="Int32" />
+                <asp:Parameter Name="original_InitialYear" Type="Boolean" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="ID" Type="Int32" />
-                <asp:Parameter Name="First Name" Type="String" />
-                <asp:Parameter Name="Last Name" Type="String" />
-                <asp:Parameter Name="Max Hours" Type="Int32" />
-                <asp:Parameter Name="Initial Year" Type="String" />
+                <asp:Parameter Name="Name" Type="String" />
+                <asp:Parameter Name="MaxHours" Type="Int32" />
+                <asp:Parameter Name="CurrentHours" Type="Int32" />
+                <asp:Parameter Name="InitialYear" Type="Boolean" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="FirstName" Type="String" />
-                <asp:Parameter Name="LastName" Type="String" />
+                <asp:Parameter Name="Name" Type="String" />
                 <asp:Parameter Name="MaxHours" Type="Int32" />
-                <asp:Parameter Name="InitialYear" Type="String" />
-                <asp:Parameter Name="original_Id" Type="Int32" />
-                <asp:Parameter Name="original_FirstName" Type="String" />
-                <asp:Parameter Name="original_LastName" Type="String" />
+                <asp:Parameter Name="CurrentHours" Type="Int32" />
+                <asp:Parameter Name="InitialYear" Type="Boolean" />
+                <asp:Parameter Name="original_ID" Type="Int32" />
+                <asp:Parameter Name="original_Name" Type="String" />
                 <asp:Parameter Name="original_MaxHours" Type="Int32" />
-                <asp:Parameter Name="original_InitialYear" Type="String" />
+                <asp:Parameter Name="original_CurrentHours" Type="Int32" />
+                <asp:Parameter Name="original_InitialYear" Type="Boolean" />
             </UpdateParameters>
         </asp:SqlDataSource>
     </p>
