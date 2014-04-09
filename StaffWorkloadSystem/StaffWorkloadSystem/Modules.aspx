@@ -7,6 +7,9 @@
         Here are all the modules in the system.
     </p>
     <p>
+        <a href="AddModules" class="btn btn-primary btn-large">Add a Module</a>
+    </p>
+    <p>
         Select level you wish to view:
     </p>
     <label>Level: </label>
