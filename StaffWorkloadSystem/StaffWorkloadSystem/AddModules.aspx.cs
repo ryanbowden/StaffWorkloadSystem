@@ -89,13 +89,41 @@ namespace StaffWorkloadSystem
             try
             {
                 //query for inserting into the database
-                string AddModuleQuery = "INSERT INTO [Modules] (Name,ModuleCode,LectureLenthMinutes,WorkShopLenthMinutes,WorkshopNumbers,Semesters,StudentNumbers,Assessments,Level) VALUES (@Name,@ModuleCode,@LectureLenthMinutes,@Work";
+                string AddModuleQuery = "INSERT INTO [Modules] (Name,ModuleCode,LectureLenthMinutes,WorkShopLenthMinutes,WorkshopNumbers,Semesters,StudentNumbers,Assessments,Level) VALUES (@Name,@ModuleCode,@LectureLenthMinutes,@WorkshopLenth,@WorkShopNumbers,@Semesters,@StudentNubers,@Assessments,@Level)";
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand comm = new SqlCommand())
+                    {
+                        comm.Connection = conn;
+                        comm.CommandType = CommandType.Text;
+                        comm.CommandText = AddModuleQuery;
+                        comm.Parameters.AddWithValue("@Name", ModuleName);
+                        comm.Parameters.AddWithValue("@ModuleCode", ModuleCode);
+                        comm.Parameters.AddWithValue("@LectureLenthMinutes", LectureLenth);
+                        comm.Parameters.AddWithValue("@WorkshopLenth", WorkshopLenth);
+                        comm.Parameters.AddWithValue("@WorkShopNumbers", NoWorkshops);
+                        comm.Parameters.AddWithValue("@Semesters", Semesters);
+                        comm.Parameters.AddWithValue("@StudentNubers", StudentNumbers);
+                        comm.Parameters.AddWithValue("@Assessments", Assessments);
+                        comm.Parameters.AddWithValue("@Level", Level);
+                        try
+                        {
+                            conn.Open();
+                            comm.ExecuteNonQuery();
+                        }
+                        catch
+                        {
+                            lblErrorStatus.InnerText = "An Issue with connecting to the database has happened!";
+
+                        }
+                    }
+                }
             }
             catch
             {
                 return false;
             }
-
+            lblStatus.InnerText = "Module Sucessfully Added!";
             return true;
         }
     }
