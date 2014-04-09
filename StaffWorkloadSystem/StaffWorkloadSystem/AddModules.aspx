@@ -3,6 +3,8 @@
     <h1>
         Add a Module
     </h1>
+    <label id="lblErrorStatus" runat="server"></label>
+    <label id="lblStatus" runat="server"></label>
     <p>Here you can enter a module into the system. Please make sure everythign is correct before submitting. </p>
     <label>Name: </label>
     <asp:TextBox ID="moduleName" runat="server"></asp:TextBox>
