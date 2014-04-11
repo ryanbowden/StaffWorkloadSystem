@@ -154,6 +154,7 @@
     <Content Include="addDuties.aspx" />
     <Content Include="AddModules.aspx" />
     <Content Include="addstaff.aspx" />
+    <Content Include="allStaffInfo.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -274,6 +275,13 @@
     </Compile>
     <Compile Include="addstaff.aspx.designer.cs">
       <DependentUpon>addstaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="allStaffInfo.aspx.cs">
+      <DependentUpon>allStaffInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="allStaffInfo.aspx.designer.cs">
+      <DependentUpon>allStaffInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
