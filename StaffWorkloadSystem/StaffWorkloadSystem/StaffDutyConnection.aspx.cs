@@ -97,7 +97,7 @@ namespace StaffWorkloadSystem
                 int CurrentHours;
                 //now have information need to see what the person currectn hours and Max hours are. 
                  MaxHours = Convert.ToInt32(reader["MaxHours"]);
-                //A bug will happen if we try to conver the CurrentHours if it is null so need to check first.
+                //A bug will happen if we try to convert the CurrentHours if it is null so need to check first.
                 if (reader.IsDBNull(reader.GetOrdinal("CurrentHours")))
                 {
                      CurrentHours = 0;

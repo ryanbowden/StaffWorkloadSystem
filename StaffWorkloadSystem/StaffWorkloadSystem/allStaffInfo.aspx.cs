@@ -93,29 +93,41 @@ namespace StaffWorkloadSystem
                         string StaffDutyId = sd["DutyID"].ToString();
                         int staffDtuyHours = Convert.ToInt32(sd["Hours"]);
 
+                        //now need to get the information from that duty.
+                        //Query requied
+                        string DutyInformationSelect = "SELECT ID, Name FROM Duties WHERE ID='"+StaffDutyId+"'";
+                        SqlConnection dutyinfoCONN = new SqlConnection(constr);
+                        SqlCommand DutyInfoCMD = new SqlCommand(DutyInformationSelect, dutyinfoCONN);
+                        SqlDataReader dutyInfo;
+                        dutyinfoCONN.Open();
+                        dutyInfo = DutyInfoCMD.ExecuteReader();
+                        dutyInfo.Read();
+                        //variable to store duty name
+                        string DutyName = dutyInfo["Name"].ToString();
+                        //need to get it off the reader
+
                         DataRow StaffDataRows = staffDetails.NewRow();
                         StaffDataRows["StaffName"] = StaffName;
-                        //StaffDataRows["StaffName"] = StaffName;
+                        StaffDataRows["Title"] = DutyName;
                         StaffDataRows["Hours"] = staffDtuyHours;
                         staffDetails.Rows.Add(StaffDataRows);
+                        dutyInfo.Close();
+                        dutyinfoCONN.Close();
                     }
-                    
-
-
-
-                    //MyFunction(dr["Id"].ToString(), dr["Name"].ToString());
+                   
                 }
 
                 StaffDutiesDetails.DataSource = staffDetails;
                 StaffDutiesDetails.DataBind();
             }
-            catch
+            catch(Exception ex)
             {
-
+                lblErrors.Text = ex.Message;
             }
             finally
             {
                 staffselectconnection.Close();
+                
             }
 
         }
