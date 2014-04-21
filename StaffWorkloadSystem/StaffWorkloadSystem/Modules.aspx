@@ -13,6 +13,7 @@
                 </p>
                 <p>
                     <a href="AddModules" class="btn btn-primary btn-large">Add a Module</a>
+                    <a href="AddModulesToStaff" class="btn btn-primary btn-large">Connect Module To Staff</a>
                 </p>
                 <p>
                     Select level you wish to view:
