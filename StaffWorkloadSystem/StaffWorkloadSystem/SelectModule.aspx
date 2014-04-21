@@ -9,7 +9,14 @@
             <p>
                 Please Select a Module From this List.
             </p>
-
+            <asp:Label ID="lblErrors" runat="server" Text=""></asp:Label>  
+            <asp:GridView ID="Modules" runat="server" AutoGenerateColumns="false" AllowPaging="false">
+                <Columns>
+                    <asp:BoundField DataField="ModuleCode" HeaderText="Module Code" />
+                    <asp:BoundField DataField="ModuleName" HeaderText="Module Name" />
+                    <asp:BoundField DataField="DetailsLink" HeaderText="Full Details" htmlencode="false"/>
+                </Columns>
+            </asp:GridView>
         </LoggedInTemplate>
     </asp:LoginView>
 </asp:Content>
