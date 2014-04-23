@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace StaffWorkloadSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             //Clear any Labels
             ((Label)LoginView1.FindControl("lblError")).Text = "";
             //Check Weather it is a ispostback
@@ -26,6 +28,7 @@ namespace StaffWorkloadSystem
                     //Now need to start setting up the page.
                     //First need to get this module details 
                     GetModuleDetails(ModuleID);
+                    GetModuleStaff(ModuleID);
                 }
                 else
                 {
@@ -78,6 +81,109 @@ namespace StaffWorkloadSystem
         public void GetModuleStaff(int ModuleID)
         {
             //Will be used to get the staff that are part of the module
+
+            //Need to make datatable for staff list to go in
+            DataTable StaffModules = new DataTable();
+            //Rows for the DataTable Need to be created
+            DataColumn StaffColumns = new DataColumn();
+            //Rows Needed StaffName / Weighting / Coordinator / ExtraHours
+            StaffColumns.ColumnName = "StaffName";
+            StaffColumns.DataType = System.Type.GetType("System.String");
+            StaffModules.Columns.Add(StaffColumns);
+
+            StaffColumns = new DataColumn();
+            StaffColumns.ColumnName = "Weighting";
+            StaffColumns.DataType = System.Type.GetType("System.Decimal");
+            StaffModules.Columns.Add(StaffColumns);
+
+            StaffColumns = new DataColumn();
+            StaffColumns.ColumnName = "Coordinator";
+            StaffColumns.DataType = System.Type.GetType("System.Boolean");
+            StaffModules.Columns.Add(StaffColumns);
+
+            StaffColumns = new DataColumn();
+            StaffColumns.ColumnName = "ExtraHours";
+            StaffColumns.DataType = System.Type.GetType("System.String");
+            StaffModules.Columns.Add(StaffColumns);
+
+            StaffColumns = new DataColumn();
+            StaffColumns.ColumnName = "Edit";
+            StaffColumns.DataType = System.Type.GetType("System.String");
+            StaffModules.Columns.Add(StaffColumns);
+
+            StaffColumns = new DataColumn();
+            StaffColumns.ColumnName = "Delete";
+            StaffColumns.DataType = System.Type.GetType("System.String");
+            StaffModules.Columns.Add(StaffColumns);
+
+            //Select query to select staff in that module
+            string StaffModulesSelect = "SELECT * FROM StaffModules WHERE ModuleID="+ModuleID;
+            string constr = "Data Source=y2x8tstejy.database.windows.net;Initial Catalog=staffwoAJ4TKlNRs;User ID=RyanBowden;Password=Molly_10";
+            SqlConnection conn = new SqlConnection(constr);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(StaffModulesSelect, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable StaffIDs = new DataTable();
+                da.Fill(StaffIDs);
+                //Foreach loop
+                foreach (DataRow dr in StaffIDs.Rows)
+                {
+                    //Now get all the data we can from that row.
+                    int StaffID = Convert.ToInt32(dr["StaffID"]);
+                    int Weighting = Convert.ToInt32(dr["Weighting"]);
+                    bool Coordinator = dr["Weighting"].ToString() == "True" ? true : false;
+                    int ExtraHours = Convert.ToInt32(dr["ExtraHours"]);
+                    //Now we have the code we are missing one thing 
+                    //Staff Name This will be really HelpFul to give. 
+
+                    string StaffNameSelect = "SELECT Name FROM StaffDetails WHERE ID=" + StaffID;
+                    SqlConnection connstaff = new SqlConnection(constr);
+                    try
+                    {
+                        
+                        SqlCommand cmdStaff = new SqlCommand(StaffNameSelect, connstaff);
+                        SqlDataReader StaffNames;
+                        connstaff.Open();
+                        StaffNames = cmdStaff.ExecuteReader();
+                        StaffNames.Read();
+                        string staffName = StaffNames["Name"].ToString();
+
+                        //Now we have all the data tiem to add it to a Row in the DataTable
+                        DataRow StaffModuleRow = StaffModules.NewRow();
+                        StaffModuleRow["StaffName"] = staffName;
+                        StaffModuleRow["Weighting"] = Weighting;
+                        StaffModuleRow["Coordinator"] = Coordinator;
+                        StaffModuleRow["ExtraHours"] = ExtraHours;
+                        StaffModules.Rows.Add(StaffModuleRow);
+                        StaffNames.Close();
+
+                    }
+                    catch(Exception ex)
+                    {
+                        ((Label)LoginView1.FindControl("lblError")).Text = "Error when getting staff Details"+ex.Message;
+                        return;
+                    }
+                    finally{
+                        connstaff.Close();
+                    }
+                }
+                //Bind to gridView
+                ((GridView)LoginView1.FindControl("StaffModulesDetails")).DataSource = StaffModules;
+                ((GridView)LoginView1.FindControl("StaffModulesDetails")).DataBind();
+            }
+            catch(Exception ex)
+            {
+                ((Label)LoginView1.FindControl("lblError")).Text = "Error when connecting to database"+ex.Message;
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            
+            
         }
 
         public bool AddStaffToModule(int StaffID, int ModuleID, int Coordinator, decimal Weighting)
@@ -90,7 +196,7 @@ namespace StaffWorkloadSystem
             //Now need to connect to the database
             try
             {
-                string Query = "INSERT INTO [StaffModules] (ModuleID,StaffID,Weighting,Coordinator) values (@Module,@staff,@Weighting,@Coordinator)";
+                string Query = "INSERT INTO [StaffModules] (ModuleID,StaffID,Weighting,Coordinator,ExtraHours) values (@Module,@staff,@Weighting,@Coordinator,@ExtraHours)";
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     using (SqlCommand comm = new SqlCommand())
@@ -102,21 +208,23 @@ namespace StaffWorkloadSystem
                         comm.Parameters.AddWithValue("@staff", StaffID);
                         comm.Parameters.AddWithValue("@Weighting", Weighting);
                         comm.Parameters.AddWithValue("@Coordinator", Coordinator);
+                        comm.Parameters.AddWithValue("@ExtraHours", 0);
                         try
                         {
                             conn.Open();
                             comm.ExecuteNonQuery();
                         }
-                        catch
+                        catch(Exception ex)
                         {
-                            ((Label)LoginView1.FindControl("ModuleName")).Text = "An issue has happened when connecting to the database";
+                            ((Label)LoginView1.FindControl("lblError")).Text = "An issue has happened when connecting to the database = "+ex.Message;
                             return false;
                         }
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                ((Label)LoginView1.FindControl("lblError")).Text = "Something Went Wrong = " + ex.Message;
                 return false;
             }
             finally
@@ -164,14 +272,16 @@ namespace StaffWorkloadSystem
                 if (addstaff == true)
                 {
                     ((Label)LoginView1.FindControl("lblStatus")).Text = "Staff Member added sucessfully";
+                    GetModuleStaff(ModuleID);
                 }
                 else
                 {
-                    ((Label)LoginView1.FindControl("lblError")).Text = "Something went wrong!";
+                    //((Label)LoginView1.FindControl("lblError")).Text = "Something went wrong!";
                 }
             }
             else
             {
+                ((Label)LoginView1.FindControl("lblError")).Text = "Staff member All ready Added!";
                 return;
             }
         }
