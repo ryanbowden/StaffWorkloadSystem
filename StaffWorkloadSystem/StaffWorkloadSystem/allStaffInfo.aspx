@@ -9,6 +9,14 @@
             <asp:BoundField DataField="ModuleCode" HeaderText="Module" />
             <asp:BoundField DataField="Title" HeaderText="Title" />
             <asp:BoundField DataField="DeliverySemester" HeaderText="Semester" />
+            <asp:BoundField DataField="TutorSplit" HeaderText="Tutor Split" />
+            <asp:BoundField DataField="CohortSize" HeaderText="Cohort Size" />
+            <asp:BoundField DataField="DeliveryWeeks" HeaderText="No Of Delivery Weeks" />
+            <asp:BoundField DataField="LectureHours" HeaderText="Weekly Lecture Hours" />
+            <asp:BoundField DataField="WorkShopLenth" HeaderText="WorkShop Lenth" />
+            <asp:BoundField DataField="NoWorkshops" HeaderText="NO. Workshops" />
+            <asp:BoundField DataField="TotalDelivery" HeaderText="Total Delivery" />
+            <asp:BoundField DataField="PrepandAss" HeaderText="Prep And Assessment time" />
             <asp:BoundField DataField="Hours" HeaderText="Hours" />
         </Columns>
     </asp:GridView>
