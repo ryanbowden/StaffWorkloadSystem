@@ -153,6 +153,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="addDuties.aspx" />
     <Content Include="AddModules.aspx" />
+    <Content Include="fullstaffHours.aspx" />
     <Content Include="ModuleStaff.aspx" />
     <Content Include="SelectModule.aspx" />
     <Content Include="addstaff.aspx" />
@@ -270,6 +271,13 @@
     </Compile>
     <Compile Include="AddModules.aspx.designer.cs">
       <DependentUpon>AddModules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fullstaffHours.aspx.cs">
+      <DependentUpon>fullstaffHours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fullstaffHours.aspx.designer.cs">
+      <DependentUpon>fullstaffHours.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleStaff.aspx.cs">
       <DependentUpon>ModuleStaff.aspx</DependentUpon>

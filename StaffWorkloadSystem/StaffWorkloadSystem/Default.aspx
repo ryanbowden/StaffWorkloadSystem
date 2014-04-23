@@ -18,6 +18,15 @@
                 <a class="btn btn-default" href="/allStaffInfo">All Staff info</a>
             </p>
         </div>
+        <div class="col-md-4">
+            <h2>Full Staff Hours</h2>
+            <p>
+                A table with every staff members Full Hours
+            </p>
+            <p>
+                <a class="btn btn-default" href="/fullstaffHours">Full Staff Hours</a>
+            </p>
+        </div>
         <!--<div class="col-md-4">
             <h2>Get more libraries</h2>
             <p>
