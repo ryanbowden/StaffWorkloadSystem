@@ -133,7 +133,7 @@ namespace StaffWorkloadSystem
                     //Now get all the data we can from that row.
                     int StaffID = Convert.ToInt32(dr["StaffID"]);
                     decimal Weighting = Convert.ToDecimal(dr["Weighting"]);
-                    bool Coordinator = dr["Weighting"].ToString() == "True" ? true : false;
+                    bool Coordinator = dr["Coordinator"].ToString() == "True" ? true : false;
                     int ExtraHours = Convert.ToInt32(dr["ExtraHours"]);
                     //Now we have the code we are missing one thing 
                     //Staff Name This will be really HelpFul to give. 
